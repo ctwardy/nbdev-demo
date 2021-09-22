@@ -66,12 +66,7 @@ Here's a better one.
 First, grab some data from the interwebs:
 
 ```python
-dataset = 'car_crashes'
-try:
-    import seaborn as sns
-    df = sns.load_dataset(dataset)
-except ModuleNotFoundError:
-    df = pd.read_csv(f'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/{dataset}.csv')
+df = getCrashes()
 df.sample(5)
 ```
 
@@ -108,6 +103,50 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
+      <th>18</th>
+      <td>20.5</td>
+      <td>7.175</td>
+      <td>6.765</td>
+      <td>14.965</td>
+      <td>20.090</td>
+      <td>1281.55</td>
+      <td>194.78</td>
+      <td>LA</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>12.8</td>
+      <td>4.224</td>
+      <td>3.328</td>
+      <td>8.576</td>
+      <td>11.520</td>
+      <td>804.71</td>
+      <td>104.61</td>
+      <td>OR</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>18.1</td>
+      <td>7.421</td>
+      <td>4.525</td>
+      <td>16.290</td>
+      <td>17.014</td>
+      <td>1053.48</td>
+      <td>133.93</td>
+      <td>AK</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>13.6</td>
+      <td>5.032</td>
+      <td>3.808</td>
+      <td>10.744</td>
+      <td>12.920</td>
+      <td>835.50</td>
+      <td>139.91</td>
+      <td>CO</td>
+    </tr>
+    <tr>
       <th>33</th>
       <td>16.8</td>
       <td>6.552</td>
@@ -117,50 +156,6 @@ df.sample(5)
       <td>708.24</td>
       <td>127.82</td>
       <td>NC</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>17.4</td>
-      <td>7.308</td>
-      <td>5.568</td>
-      <td>14.094</td>
-      <td>15.660</td>
-      <td>791.14</td>
-      <td>122.04</td>
-      <td>WY</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>21.4</td>
-      <td>4.066</td>
-      <td>4.922</td>
-      <td>16.692</td>
-      <td>16.264</td>
-      <td>872.51</td>
-      <td>137.13</td>
-      <td>KY</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>15.6</td>
-      <td>2.964</td>
-      <td>3.900</td>
-      <td>14.820</td>
-      <td>14.508</td>
-      <td>913.15</td>
-      <td>142.80</td>
-      <td>GA</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>19.4</td>
-      <td>7.760</td>
-      <td>7.372</td>
-      <td>17.654</td>
-      <td>16.878</td>
-      <td>1004.75</td>
-      <td>156.83</td>
-      <td>TX</td>
     </tr>
   </tbody>
 </table>
@@ -281,16 +276,16 @@ discretize(df)
     	(153.72, 159.85]    5
     	(159.85, 194.78]    5
     abbrev:
-    	IA        1
-    	IN        1
-    	MS        1
-    	NH        1
-    	NV        1
-    	OK        1
-    	SC        1
-    	SD        1
-    	VA        1
-    	WA        1
+    	AK        1
+    	CA        1
+    	LA        1
+    	ME        1
+    	MI        1
+    	MO        1
+    	NE        1
+    	NJ        1
+    	UT        1
+    	WY        1
     	Other    41
       DROPPED [] because < 2 vals each.
 
@@ -347,7 +342,7 @@ discretize(df)
       <td>(16.038, 17.014]</td>
       <td>(1048.78, 1148.99]</td>
       <td>(133.35, 136.05]</td>
-      <td>Other</td>
+      <td>AK</td>
     </tr>
     <tr>
       <th>2</th>
@@ -380,7 +375,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(858.97, 881.51]</td>
       <td>(159.85, 194.78]</td>
-      <td>Other</td>
+      <td>CA</td>
     </tr>
     <tr>
       <th>5</th>
@@ -490,7 +485,7 @@ discretize(df)
       <td>(12.92, 13.775]</td>
       <td>(688.75, 732.28]</td>
       <td>(106.62, 110.35]</td>
-      <td>IN</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>15</th>
@@ -501,7 +496,7 @@ discretize(df)
       <td>(12.92, 13.775]</td>
       <td>(641.9590000000001, 688.75]</td>
       <td>(110.35, 120.21]</td>
-      <td>IA</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>16</th>
@@ -534,7 +529,7 @@ discretize(df)
       <td>(18.706, 21.28]</td>
       <td>(1148.99, 1301.52]</td>
       <td>(159.85, 194.78]</td>
-      <td>Other</td>
+      <td>LA</td>
     </tr>
     <tr>
       <th>19</th>
@@ -545,7 +540,7 @@ discretize(df)
       <td>(11.592, 12.92]</td>
       <td>(641.9590000000001, 688.75]</td>
       <td>(82.749, 106.62]</td>
-      <td>Other</td>
+      <td>ME</td>
     </tr>
     <tr>
       <th>20</th>
@@ -578,7 +573,7 @@ discretize(df)
       <td>(10.848, 11.592]</td>
       <td>(1048.78, 1148.99]</td>
       <td>(148.58, 153.72]</td>
-      <td>Other</td>
+      <td>MI</td>
     </tr>
     <tr>
       <th>23</th>
@@ -600,7 +595,7 @@ discretize(df)
       <td>(17.014, 18.706]</td>
       <td>(881.51, 913.15]</td>
       <td>(153.72, 159.85]</td>
-      <td>MS</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>25</th>
@@ -611,7 +606,7 @@ discretize(df)
       <td>(12.92, 13.775]</td>
       <td>(780.45, 804.71]</td>
       <td>(142.39, 148.58]</td>
-      <td>Other</td>
+      <td>MO</td>
     </tr>
     <tr>
       <th>26</th>
@@ -633,7 +628,7 @@ discretize(df)
       <td>(12.92, 13.775]</td>
       <td>(688.75, 732.28]</td>
       <td>(110.35, 120.21]</td>
-      <td>Other</td>
+      <td>NE</td>
     </tr>
     <tr>
       <th>28</th>
@@ -644,7 +639,7 @@ discretize(df)
       <td>(13.775, 15.13]</td>
       <td>(913.15, 1048.78]</td>
       <td>(136.05, 142.39]</td>
-      <td>NV</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>29</th>
@@ -655,7 +650,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(732.28, 780.45]</td>
       <td>(110.35, 120.21]</td>
-      <td>NH</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>30</th>
@@ -666,7 +661,7 @@ discretize(df)
       <td>(5.899, 8.856]</td>
       <td>(1148.99, 1301.52]</td>
       <td>(153.72, 159.85]</td>
-      <td>Other</td>
+      <td>NJ</td>
     </tr>
     <tr>
       <th>31</th>
@@ -732,7 +727,7 @@ discretize(df)
       <td>(17.014, 18.706]</td>
       <td>(858.97, 881.51]</td>
       <td>(159.85, 194.78]</td>
-      <td>OK</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>37</th>
@@ -776,7 +771,7 @@ discretize(df)
       <td>(18.706, 21.28]</td>
       <td>(804.71, 858.97]</td>
       <td>(110.35, 120.21]</td>
-      <td>SC</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>41</th>
@@ -787,7 +782,7 @@ discretize(df)
       <td>(16.038, 17.014]</td>
       <td>(641.9590000000001, 688.75]</td>
       <td>(82.749, 106.62]</td>
-      <td>SD</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>42</th>
@@ -820,7 +815,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(804.71, 858.97]</td>
       <td>(106.62, 110.35]</td>
-      <td>Other</td>
+      <td>UT</td>
     </tr>
     <tr>
       <th>45</th>
@@ -842,7 +837,7 @@ discretize(df)
       <td>(10.848, 11.592]</td>
       <td>(732.28, 780.45]</td>
       <td>(148.58, 153.72]</td>
-      <td>VA</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>47</th>
@@ -853,7 +848,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(881.51, 913.15]</td>
       <td>(110.35, 120.21]</td>
-      <td>WA</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>48</th>
@@ -886,7 +881,7 @@ discretize(df)
       <td>(15.13, 16.038]</td>
       <td>(780.45, 804.71]</td>
       <td>(120.21, 133.35]</td>
-      <td>Other</td>
+      <td>WY</td>
     </tr>
   </tbody>
 </table>

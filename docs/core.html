@@ -67,9 +67,33 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="makeMixedDataFrame" class="doc_header"><code>makeMixedDataFrame</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>makeMixedDataFrame</code>()</p>
+<h4 id="makeMixedDataFrame" class="doc_header"><code>makeMixedDataFrame</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>makeMixedDataFrame</code>()</p>
 </blockquote>
 <p>Return a constant mixed-type dataframe [float, float, str, datetime]</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="getCrashes" class="doc_header"><code>getCrashes</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>getCrashes</code>(<strong><code>dataset</code></strong>=<em><code>'car_crashes'</code></em>)</p>
+</blockquote>
 
 </div>
 
@@ -102,6 +126,125 @@ nb_path: "00_core.ipynb"
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">getCrashes</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total</th>
+      <th>speeding</th>
+      <th>alcohol</th>
+      <th>not_distracted</th>
+      <th>no_previous</th>
+      <th>ins_premium</th>
+      <th>ins_losses</th>
+      <th>abbrev</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15</th>
+      <td>15.7</td>
+      <td>2.669</td>
+      <td>3.925</td>
+      <td>15.229</td>
+      <td>13.659</td>
+      <td>649.06</td>
+      <td>114.47</td>
+      <td>IA</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>10.6</td>
+      <td>4.452</td>
+      <td>3.498</td>
+      <td>8.692</td>
+      <td>9.116</td>
+      <td>890.03</td>
+      <td>111.62</td>
+      <td>WA</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>14.9</td>
+      <td>1.937</td>
+      <td>5.215</td>
+      <td>13.857</td>
+      <td>13.410</td>
+      <td>732.28</td>
+      <td>114.82</td>
+      <td>NE</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>19.9</td>
+      <td>6.368</td>
+      <td>5.771</td>
+      <td>18.308</td>
+      <td>18.706</td>
+      <td>881.51</td>
+      <td>178.86</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>12.5</td>
+      <td>4.250</td>
+      <td>4.000</td>
+      <td>8.875</td>
+      <td>12.375</td>
+      <td>1048.78</td>
+      <td>192.70</td>
+      <td>MD</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -148,7 +291,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="is_numeric" class="doc_header"><code>is_numeric</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_numeric</code>(<strong><code>col</code></strong>:<code>str</code>)</p>
+<h4 id="is_numeric" class="doc_header"><code>is_numeric</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>is_numeric</code>(<strong><code>col</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns True iff already numeric, or can be coerced.
 Usage: df.apply(is_numeric)
@@ -209,7 +352,7 @@ Usage: is_numeric(df['colname'])</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="drop_singletons" class="doc_header"><code>drop_singletons</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>drop_singletons</code>(<strong><code>df</code></strong>, <strong><code>verbose</code></strong>=<em><code>1</code></em>)</p>
+<h4 id="drop_singletons" class="doc_header"><code>drop_singletons</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>drop_singletons</code>(<strong><code>df</code></strong>, <strong><code>verbose</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Drop columns with &lt; 2 unique values. Inplace.</p>
 
@@ -311,7 +454,7 @@ Usage: is_numeric(df['colname'])</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="discretize" class="doc_header"><code>discretize</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discretize</code>(<strong><code>df</code></strong>, <strong><code>nbins</code></strong>=<em><code>10</code></em>, <strong><code>cut</code></strong>=<em><code>qcut</code></em>, <strong><code>verbose</code></strong>=<em><code>2</code></em>, <strong><code>drop_useless</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="discretize" class="doc_header"><code>discretize</code><a href="https://github.com/ctwardy/mydemo/tree/master/mydemo/core.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discretize</code>(<strong><code>df</code></strong>, <strong><code>nbins</code></strong>=<em><code>10</code></em>, <strong><code>cut</code></strong>=<em><code>qcut</code></em>, <strong><code>verbose</code></strong>=<em><code>2</code></em>, <strong><code>drop_useless</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Discretize columns in {df} to have at most {nbins} categories.</p>
 <ul>
