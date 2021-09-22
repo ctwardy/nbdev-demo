@@ -1,20 +1,56 @@
 # MyDemo
-> Super demo for nbdev.
+> Super demo for nbdev. We'll write a discretizer.
 
 
-This file has become my README and also the index of your documentation.
+Since this is an `nbdev` demo, the flavor text here can talk about using nbdev, rather than the 'MyDemo' module itself. I'll assume by this time you have:
 
-Thanks to nbdev magic `nbdev_build_docs`, run as part of `make`. 
+* Switched to a suitable Python virtual environment
+* Installed jupyter
+* Installed nbdev
+
+
+_This_ file (`index.ipynb`) creates `README.md` -- you get to write README in Jupyter! The README of course becomes the package description on GitHub, but if things work right, it _also_ becomes the root for professionally-generated documentation on GitHub Pages (or your local Jekyll server).  
+
+Normally the README wouldn't have the stuff I just wrote.  Typically it would have a short description of the package, Install instructions, and some quick Examples.
+
+Assuming you've imported your modules up top, generate the Python modules and docs with these two commands:
+
+```
+$ nbdev_build_lib && nbdev_build_docs
+```
+
+Even easier, if you have `make` installed, just type `make`!
+
+If all goes well you can then 
+
+
+
+## Caveats
+⚠️ The first cell should import your module. Ex: `from <module>.core import *` In our case, `core` is defined in `00_core.ipynb`, which generates `mydemo/core.py`. 
+
+⚠️ The "MyDemo" title cell has a _specific format_. Follow the template:
+
+```python
+   # ModuleName
+
+   > One-line module description
+```
+
+
 
 ## Install
 
+Write your install instructions here. Typically something like:
+
 `pip install your_project_name`  <-- replace with `mydemo`...
+
+Note: `nbdev` makes it easy to upload your package to `pip` or `conda`, but if doing this for work, _check with work first!_.  Similarly with GitHub etc.  (Though you can configure `nbdev` to use private repositories.)
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
+Fill me in please! Don't forget code examples. Here's a trivial one:
 
-```
+```python
 1+1
 ```
 
@@ -25,11 +61,11 @@ Fill me in please! Don't forget code examples:
 
 
 
-Okay, sure...
+Here's a better one.  
 
-Grab some data from the webs
+First, grab some data from the interwebs:
 
-```
+```python
 dataset = 'car_crashes'
 try:
     import seaborn as sns
@@ -72,59 +108,59 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>18.1</td>
-      <td>7.421</td>
-      <td>4.525</td>
-      <td>16.290</td>
-      <td>17.014</td>
-      <td>1053.48</td>
-      <td>133.93</td>
-      <td>AK</td>
+      <th>33</th>
+      <td>16.8</td>
+      <td>6.552</td>
+      <td>5.208</td>
+      <td>15.792</td>
+      <td>13.608</td>
+      <td>708.24</td>
+      <td>127.82</td>
+      <td>NC</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>50</th>
+      <td>17.4</td>
+      <td>7.308</td>
+      <td>5.568</td>
+      <td>14.094</td>
+      <td>15.660</td>
+      <td>791.14</td>
+      <td>122.04</td>
+      <td>WY</td>
+    </tr>
+    <tr>
+      <th>17</th>
       <td>21.4</td>
-      <td>8.346</td>
-      <td>9.416</td>
-      <td>17.976</td>
-      <td>18.190</td>
-      <td>816.21</td>
-      <td>85.15</td>
-      <td>MT</td>
+      <td>4.066</td>
+      <td>4.922</td>
+      <td>16.692</td>
+      <td>16.264</td>
+      <td>872.51</td>
+      <td>137.13</td>
+      <td>KY</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>17.6</td>
-      <td>2.640</td>
-      <td>5.456</td>
-      <td>1.760</td>
-      <td>17.600</td>
-      <td>896.07</td>
-      <td>155.77</td>
-      <td>MS</td>
+      <th>10</th>
+      <td>15.6</td>
+      <td>2.964</td>
+      <td>3.900</td>
+      <td>14.820</td>
+      <td>14.508</td>
+      <td>913.15</td>
+      <td>142.80</td>
+      <td>GA</td>
     </tr>
     <tr>
-      <th>31</th>
-      <td>18.4</td>
-      <td>3.496</td>
-      <td>4.968</td>
-      <td>12.328</td>
-      <td>18.032</td>
-      <td>869.85</td>
-      <td>120.75</td>
-      <td>NM</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>11.6</td>
-      <td>4.060</td>
-      <td>3.480</td>
-      <td>10.092</td>
-      <td>9.628</td>
-      <td>746.54</td>
-      <td>120.21</td>
-      <td>NH</td>
+      <th>43</th>
+      <td>19.4</td>
+      <td>7.760</td>
+      <td>7.372</td>
+      <td>17.654</td>
+      <td>16.878</td>
+      <td>1004.75</td>
+      <td>156.83</td>
+      <td>TX</td>
     </tr>
   </tbody>
 </table>
@@ -134,9 +170,9 @@ df.sample(5)
 
 ### Test our super demo function
 
-Use our super demo function to check which columns are numeric:
+Core defines a few handy functions like `is_numeric()`. Try it:
 
-```
+```python
 df.apply(is_numeric)
 ```
 
@@ -155,21 +191,15 @@ df.apply(is_numeric)
 
 
 
-Modules can do their own testing!
+It's common to put `assert` in some tests so `nbdev` can check during build.  (This is more common in the modules rather than the index/README.) Here:
 
-```
+```python
 assert is_numeric(df['speeding'])
 ```
 
-Okay, this is `index.ipynb` aka the README, but still...
+### Test the fancy `discretize()` function.
 
-### The README?
-
-Yes, this notebook generates `README.md`.
-
-Just type `nbdev_build_docs`, or even easier `make` from the commandline.
-
-```
+```python
 discretize(df)
 ```
 
@@ -251,16 +281,16 @@ discretize(df)
     	(153.72, 159.85]    5
     	(159.85, 194.78]    5
     abbrev:
-    	AR        1
-    	FL        1
     	IA        1
-    	IL        1
-    	MD        1
-    	MN        1
-    	NM        1
-    	NY        1
+    	IN        1
+    	MS        1
+    	NH        1
+    	NV        1
+    	OK        1
+    	SC        1
+    	SD        1
+    	VA        1
     	WA        1
-    	WV        1
     	Other    41
       DROPPED [] because < 2 vals each.
 
@@ -339,7 +369,7 @@ discretize(df)
       <td>(18.706, 21.28]</td>
       <td>(804.71, 858.97]</td>
       <td>(136.05, 142.39]</td>
-      <td>AR</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>4</th>
@@ -405,7 +435,7 @@ discretize(df)
       <td>(16.038, 17.014]</td>
       <td>(1148.99, 1301.52]</td>
       <td>(142.39, 148.58]</td>
-      <td>FL</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>10</th>
@@ -449,7 +479,7 @@ discretize(df)
       <td>(11.592, 12.92]</td>
       <td>(780.45, 804.71]</td>
       <td>(136.05, 142.39]</td>
-      <td>IL</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>14</th>
@@ -460,7 +490,7 @@ discretize(df)
       <td>(12.92, 13.775]</td>
       <td>(688.75, 732.28]</td>
       <td>(106.62, 110.35]</td>
-      <td>Other</td>
+      <td>IN</td>
     </tr>
     <tr>
       <th>15</th>
@@ -526,7 +556,7 @@ discretize(df)
       <td>(11.592, 12.92]</td>
       <td>(913.15, 1048.78]</td>
       <td>(159.85, 194.78]</td>
-      <td>MD</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>21</th>
@@ -559,7 +589,7 @@ discretize(df)
       <td>(5.899, 8.856]</td>
       <td>(732.28, 780.45]</td>
       <td>(120.21, 133.35]</td>
-      <td>MN</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>24</th>
@@ -570,7 +600,7 @@ discretize(df)
       <td>(17.014, 18.706]</td>
       <td>(881.51, 913.15]</td>
       <td>(153.72, 159.85]</td>
-      <td>Other</td>
+      <td>MS</td>
     </tr>
     <tr>
       <th>25</th>
@@ -614,7 +644,7 @@ discretize(df)
       <td>(13.775, 15.13]</td>
       <td>(913.15, 1048.78]</td>
       <td>(136.05, 142.39]</td>
-      <td>Other</td>
+      <td>NV</td>
     </tr>
     <tr>
       <th>29</th>
@@ -625,7 +655,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(732.28, 780.45]</td>
       <td>(110.35, 120.21]</td>
-      <td>Other</td>
+      <td>NH</td>
     </tr>
     <tr>
       <th>30</th>
@@ -647,7 +677,7 @@ discretize(df)
       <td>(17.014, 18.706]</td>
       <td>(858.97, 881.51]</td>
       <td>(120.21, 133.35]</td>
-      <td>NM</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>32</th>
@@ -658,7 +688,7 @@ discretize(df)
       <td>(8.856, 10.848]</td>
       <td>(1148.99, 1301.52]</td>
       <td>(148.58, 153.72]</td>
-      <td>NY</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>33</th>
@@ -702,7 +732,7 @@ discretize(df)
       <td>(17.014, 18.706]</td>
       <td>(858.97, 881.51]</td>
       <td>(159.85, 194.78]</td>
-      <td>Other</td>
+      <td>OK</td>
     </tr>
     <tr>
       <th>37</th>
@@ -746,7 +776,7 @@ discretize(df)
       <td>(18.706, 21.28]</td>
       <td>(804.71, 858.97]</td>
       <td>(110.35, 120.21]</td>
-      <td>Other</td>
+      <td>SC</td>
     </tr>
     <tr>
       <th>41</th>
@@ -757,7 +787,7 @@ discretize(df)
       <td>(16.038, 17.014]</td>
       <td>(641.9590000000001, 688.75]</td>
       <td>(82.749, 106.62]</td>
-      <td>Other</td>
+      <td>SD</td>
     </tr>
     <tr>
       <th>42</th>
@@ -812,7 +842,7 @@ discretize(df)
       <td>(10.848, 11.592]</td>
       <td>(732.28, 780.45]</td>
       <td>(148.58, 153.72]</td>
-      <td>Other</td>
+      <td>VA</td>
     </tr>
     <tr>
       <th>47</th>
@@ -834,7 +864,7 @@ discretize(df)
       <td>(18.706, 21.28]</td>
       <td>(913.15, 1048.78]</td>
       <td>(148.58, 153.72]</td>
-      <td>WV</td>
+      <td>Other</td>
     </tr>
     <tr>
       <th>49</th>
