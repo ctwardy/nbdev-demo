@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"is_numeric": "00_core.ipynb",
+index = {"makeMixedDataFrame": "00_core.ipynb",
+         "is_numeric": "00_core.ipynb",
          "drop_singletons": "00_core.ipynb",
          "discretize": "00_core.ipynb"}
 
