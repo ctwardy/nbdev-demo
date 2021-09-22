@@ -7,7 +7,7 @@ __all__ = ['is_numeric', 'drop_singletons', 'discretize']
 import pandas.util.testing as tm
 import pandas as pd
 from pandas.api.types import is_numeric_dtype as isnum
-from matplotlib.pyplot import rcParams
+#from matplotlib.pyplot import rcParams
 
 # Cell
 
