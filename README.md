@@ -14,7 +14,7 @@ Thanks to nbdev magic `nbdev_build_docs`, run as part of `make`.
 
 Fill me in please! Don't forget code examples:
 
-```python
+```
 1+1
 ```
 
@@ -29,7 +29,7 @@ Okay, sure...
 
 Grab some data from the webs
 
-```python
+```
 dataset = 'car_crashes'
 try:
     import seaborn as sns
@@ -136,7 +136,7 @@ df.sample(5)
 
 Use our super demo function to check which columns are numeric:
 
-```python
+```
 df.apply(is_numeric)
 ```
 
@@ -157,7 +157,7 @@ df.apply(is_numeric)
 
 Modules can do their own testing!
 
-```python
+```
 assert is_numeric(df['speeding'])
 ```
 
@@ -169,7 +169,7 @@ Yes, this notebook generates `README.md`.
 
 Just type `nbdev_build_docs`, or even easier `make` from the commandline.
 
-```python
+```
 discretize(df)
 ```
 
